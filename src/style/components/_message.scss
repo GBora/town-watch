@@ -1,0 +1,10 @@
+.tw-input-container {
+    .tw-error-message {
+        display: none;
+    }
+
+    .tw-error-message.visible-error-message {
+        display: block;
+        color: $tw-error-color;
+    }
+}
