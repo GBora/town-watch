@@ -1,14 +1,22 @@
 let validationConfig = {
     inputId: '#test-input',
-    criteria: [
+    criterias: [
         {
             name: 'IsInteger',
             errorMessageId: '#not-number-message'
+        },
+        {
+            name: 'IsNumberPositive',
+            errorMessageId: '#not-positive-message'
+        },
+        {
+            name: 'IsNumberMin',
+            min: 10,
+            errorMessageId: '#not-min-message'
         }
     ]
 }
 
 document.querySelector('#test-input').addEventListener('keyup', () => {
-    console.log('change');
-    console.log(document.validateSingleInput(validationConfig));
+    window.validateSingleInput(validationConfig)
 })
