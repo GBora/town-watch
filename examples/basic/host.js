@@ -1,5 +1,6 @@
-let validationConfig = {
+let validationConfig = [{
     inputId: '#test-input',
+    eventType: 'keyup',
     criterias: [
         {
             name: 'IsInteger',
@@ -15,8 +16,10 @@ let validationConfig = {
             errorMessageId: '#not-min-message'
         }
     ]
-}
+}]
 
-document.querySelector('#test-input').addEventListener('keyup', () => {
-    window.validateSingleInput(validationConfig)
-})
+// document.querySelector('#test-input').addEventListener('keyup', () => {
+//     townWatch.validateSingleInput(validationConfig)
+// })
+
+townWatch.setupValidators(validationConfig);

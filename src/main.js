@@ -2,22 +2,21 @@ import { applyCriteria } from './validator/validator';
 
 import './style/main.scss';
 
-window.validateMultipleInputs = (configs) => {
+export const validateMultipleInputs = (configs) => {
     let results = [];
-    for (let I = 0;  i < configs.length; i++) {
-        let config = configs[0];
+    for (let i = 0;  i < configs.length; i++) {
+        let config = configs[i];
         results.push(validateSingleInput(config));
     }
     return results.indexOf(false) === -1;
 }
 
-window.validateSingleInput = (config) => {
+export const validateSingleInput = (config) => {
     let input = document.querySelector(config.inputId);
     let results = [];
     // Assume the input is valid
     input.classList.remove('tw-invalid-input');
     input.classList.add('tw-valid-input');
-    // Go through the list of criterias
     for (let i = 0;  i < config.criterias.length; i++) {
         let criteria = config.criterias[i];
         // By default assume that the input is valid thus the message doesn't need to be visible
@@ -25,6 +24,10 @@ window.validateSingleInput = (config) => {
             let errorMessage = document.querySelector(criteria.errorMessageId);
             errorMessage.classList.remove('visible-error-message');
         }
+    }
+    // Go through the list of criterias
+    for (let i = 0;  i < config.criterias.length; i++) {
+        let criteria = config.criterias[i];
         let criteriaValidity = applyCriteria(input, criteria);
         results.push(criteriaValidity);
         if (criteriaValidity === false) {
@@ -34,8 +37,20 @@ window.validateSingleInput = (config) => {
                 let errorMessage = document.querySelector(criteria.errorMessageId);
                 errorMessage.classList.add('visible-error-message');
             }
-            return false;
+            break;
         }
     }
     return results.indexOf(false) === -1;
+}
+
+export const setupValidators = (configs) => {
+    for (let i = 0;  i < configs.length; i++) {
+        let config = configs[i];
+        if (config.eventType) {
+            let input = document.querySelector(config.inputId);
+            input.addEventListener(config.eventType, () => {
+                validateSingleInput(config);
+            })
+        }
+    }
 }
