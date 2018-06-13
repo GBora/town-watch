@@ -2,4 +2,4 @@
 
 Javascript validation library for the browser
 
-Wrk In Progress
+Work In Progress
