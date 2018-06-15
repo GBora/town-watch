@@ -1,8 +1,8 @@
 {
   "name": "town-watch",
-  "version": "1.0.0",
-  "description": "",
-  "main": "dist/main.js",
+  "version": "0.0.1",
+  "description": "Jvascript validation library for forms in the browser.",
+  "main": "dist/townWatch.js",
   "directories": {
     "example": "examples"
   },
@@ -13,8 +13,8 @@
   "keywords": [
     "validation"
   ],
-  "author": "George Bora",
-  "license": "ISC",
+  "author": "George Bora <gpbora@gmail.com>",
+  "license": "MIT",
   "devDependencies": {
     "css-loader": "^0.28.11",
     "node-sass": "^4.9.0",

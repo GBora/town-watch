@@ -1,9 +1,10 @@
-import { IsValidInput } from '../criteria/isValidInput';
-import { IsChecked } from '../criteria/isChecked';
-import { IsNumber } from '../criteria/isNumber';
-import { IsInteger } from '../criteria/isInteger'; 
-import { IsNumberMin } from '../criteria/isNumberMin';
-import { IsNumberPositive } from '../criteria/IsNumberPositive';
+import { IsValidInput } from '../criteria/General/isValidInput';
+import { IsChecked } from '../criteria/Checkbox/isChecked';
+import { IsNumber } from '../criteria/Number/isNumber';
+import { IsInteger } from '../criteria/Integer/isInteger'; 
+import { IsNumberMin } from '../criteria/Number/isNumberMin';
+import { IsNumberPositive } from '../criteria/Number/IsNumberPositive';
+import { IsNumberMax } from '../criteria/Number/isNumberMax';
 
 export const applyCriteria = (input, criteria) => {
     switch(criteria.name) {
@@ -24,6 +25,9 @@ export const applyCriteria = (input, criteria) => {
         }
         case 'IsNumberPositive': {
             return IsNumberPositive(input);
+        }
+        case 'IsNumberMax': {
+            return IsNumberMax(input, criteria);
         }
         default: {
             throw new Error('Criteria name not recognised, check if criteria exists by default or if it\'s been loaded');
