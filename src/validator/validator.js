@@ -5,6 +5,7 @@ import { IsInteger } from '../criteria/Integer/isInteger';
 import { IsNumberMin } from '../criteria/Number/isNumberMin';
 import { IsNumberPositive } from '../criteria/Number/IsNumberPositive';
 import { IsNumberMax } from '../criteria/Number/isNumberMax';
+import { StringIsNotEmpty } from '../criteria/String/stringIsNotEmpty';
 
 export const applyCriteria = (input, criteria) => {
     switch(criteria.name) {
@@ -29,9 +30,11 @@ export const applyCriteria = (input, criteria) => {
         case 'IsNumberMax': {
             return IsNumberMax(input, criteria);
         }
+        case 'StringIsNotEmpty': {
+            return StringIsNotEmpty(input);
+        }
         default: {
             throw new Error('Criteria name not recognised, check if criteria exists by default or if it\'s been loaded');
-            return true;
         }
     }
 }

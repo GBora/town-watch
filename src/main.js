@@ -1,5 +1,4 @@
-import { applyCriteria } from './validator/validator';
-
+import { applyCriteria } from './validator/Validator';
 import './style/main.scss';
 
 export const validateMultipleInputs = (configs) => {

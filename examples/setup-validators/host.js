@@ -18,7 +18,4 @@ let validationConfig = [{
     ]
 }]
 
-document.querySelector('#test-input').addEventListener('keyup', () => {
-    townWatch.validateSingleInput(validationConfig)
-})
-
+townWatch.setupValidators(validationConfig);
