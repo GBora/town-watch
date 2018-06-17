@@ -7,6 +7,13 @@ import { IsNumberPositive } from '../criteria/Number/IsNumberPositive';
 import { IsNumberMax } from '../criteria/Number/isNumberMax';
 import { StringIsNotEmpty } from '../criteria/String/stringIsNotEmpty';
 
+/**
+ * Validates a single input after a single criteria
+ * @param {object} input the DOM node representing the input that is to be validated 
+ * @param {object} criteria the criteria object with which to validate 
+ * @returns {boolean} true if the input passes all the criteria or 
+ * false if it fails at least one
+ */
 export const applyCriteria = (input, criteria) => {
     switch(criteria.name) {
         case 'IsValidInput': {

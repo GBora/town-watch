@@ -1,6 +1,12 @@
 import { applyCriteria } from './validator/Validator';
 import './style/main.scss';
 
+/**
+ * Validates an array of configs which are for multiple inputs
+ * @param {array} configs 
+  * @returns {boolean} true if all the input pass all the criteria or 
+ * false if at least one input fails one criteria
+ */
 export const validateMultipleInputs = (configs) => {
     let results = [];
     for (let i = 0;  i < configs.length; i++) {
@@ -10,6 +16,12 @@ export const validateMultipleInputs = (configs) => {
     return results.indexOf(false) === -1;
 }
 
+/**
+ * Validates a single input using the configuration object passed
+ * @param {object} config 
+ * @returns {boolean} true if the input passes all the criteria or 
+ * false if it fails at least one
+ */
 export const validateSingleInput = (config) => {
     let input = document.querySelector(config.inputId);
     let results = [];
@@ -42,6 +54,11 @@ export const validateSingleInput = (config) => {
     return results.indexOf(false) === -1;
 }
 
+/**
+ * Setups all the validations in the given config array to be run if
+ *  the proper event happens in the browser
+ * @param {array} configs 
+ */
 export const setupValidators = (configs) => {
     for (let i = 0;  i < configs.length; i++) {
         let config = configs[i];

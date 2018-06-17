@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "webpack --entry ./test/isInteger.test.js --output ./tmp/testBundle.js --target node && mocha ./tmp/testBundle.js",
-    "build": "webpack"
+    "build": "webpack",
+    "build-documentation": "documentation build src/** -f html -o docs"
   },
   "keywords": [
     "validation"
@@ -20,6 +21,7 @@
     "babel-core": "^6.26.3",
     "chai": "^4.1.2",
     "css-loader": "^0.28.11",
+    "documentation": "^8.0.0",
     "mocha": "^5.2.0",
     "mocha-webpack": "^1.1.0",
     "node-sass": "^4.9.0",
