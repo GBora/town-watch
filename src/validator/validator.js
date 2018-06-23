@@ -1,11 +1,11 @@
-import { IsValidInput } from '../criteria/General/isValidInput';
-import { IsChecked } from '../criteria/Checkbox/isChecked';
-import { IsNumber } from '../criteria/Number/isNumber';
-import { IsInteger } from '../criteria/Integer/isInteger'; 
-import { IsNumberMin } from '../criteria/Number/isNumberMin';
+import { IsValidInput } from '../criteria/General/IsValidInput';
+import { IsChecked } from '../criteria/Checkbox/IsChecked';
+import { IsNumber } from '../criteria/Number/IsNumber';
+import { IsInteger } from '../criteria/Integer/IsInteger'; 
+import { IsNumberOverMin } from '../criteria/Number/IsNumberOverMin';
 import { IsNumberPositive } from '../criteria/Number/IsNumberPositive';
-import { IsNumberMax } from '../criteria/Number/isNumberMax';
-import { StringIsNotEmpty } from '../criteria/String/stringIsNotEmpty';
+import { IsNumberUnderMax } from '../criteria/Number/IsNumberUnderMax';
+import { StringIsNotEmpty } from '../criteria/String/StringIsNotEmpty';
 
 /**
  * Validates a single input after a single criteria
@@ -28,20 +28,20 @@ export const applyCriteria = (input, criteria) => {
         case 'IsNumber': {
             return IsNumber(input);
         }
-        case 'IsNumberMin': {
-            return IsNumberMin(input, criteria);
+        case 'IsNumberOverMin': {
+            return IsNumberOverMin(input, criteria);
         }
         case 'IsNumberPositive': {
             return IsNumberPositive(input);
         }
-        case 'IsNumberMax': {
-            return IsNumberMax(input, criteria);
+        case 'IsNumberUnderMax': {
+            return IsNumberUnderMax(input, criteria);
         }
         case 'StringIsNotEmpty': {
             return StringIsNotEmpty(input);
         }
         default: {
-            throw new Error('Criteria name not recognised, check if criteria exists by default or if it\'s been loaded');
+            console.error(`Criteria name ${criteria.name} not recognised, check if criteria exists by default or if it\'s been loaded`);
         }
     }
 }

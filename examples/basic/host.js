@@ -11,7 +11,7 @@ let validationConfig = [{
             errorMessageId: '#not-positive-message'
         },
         {
-            name: 'IsNumberMin',
+            name: 'IsNumberOverMin',
             min: 10,
             errorMessageId: '#not-min-message'
         }
