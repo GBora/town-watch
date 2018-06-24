@@ -2,6 +2,7 @@ const path = require('path');
 
 module.exports = {
     entry: './src/Main.js',
+    mode: 'development',
     output: {
         library: 'townWatch',
         libraryTarget: 'umd',

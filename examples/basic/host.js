@@ -1,4 +1,4 @@
-let validationConfig = [{
+let validationConfig = {
     inputId: '#test-input',
     eventType: 'keyup',
     criterias: [
@@ -16,7 +16,7 @@ let validationConfig = [{
             errorMessageId: '#not-min-message'
         }
     ]
-}]
+}
 
 document.querySelector('#test-input').addEventListener('keyup', () => {
     townWatch.validateSingleInput(validationConfig)

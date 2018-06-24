@@ -6,6 +6,8 @@ import { IsNumberOverMin } from '../criteria/Number/IsNumberOverMin';
 import { IsNumberPositive } from '../criteria/Number/IsNumberPositive';
 import { IsNumberUnderMax } from '../criteria/Number/IsNumberUnderMax';
 import { StringIsNotEmpty } from '../criteria/String/StringIsNotEmpty';
+import { ConformsToRegex } from '../criteria/Regex/ConformsToRegex';
+import { DoesNotConformToRegex } from '../criteria/Regex/DoesNotConformToRegex';
 
 /**
  * Validates a single input after a single criteria
@@ -39,6 +41,12 @@ export const applyCriteria = (input, criteria) => {
         }
         case 'StringIsNotEmpty': {
             return StringIsNotEmpty(input);
+        }
+        case 'ConformsToRegex': {
+            return ConformsToRegex(input, criteria);
+        } 
+        case 'DoesNotConformToRegex': {
+            return DoesNotConformToRegex(input, criteria);
         }
         default: {
             console.error(`Criteria name ${criteria.name} not recognised, check if criteria exists by default or if it\'s been loaded`);
