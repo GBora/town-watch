@@ -8,6 +8,8 @@ import { IsNumberUnderMax } from '../criteria/Number/IsNumberUnderMax';
 import { StringIsNotEmpty } from '../criteria/String/StringIsNotEmpty';
 import { ConformsToRegex } from '../criteria/Regex/ConformsToRegex';
 import { DoesNotConformToRegex } from '../criteria/Regex/DoesNotConformToRegex';
+import { IsInArray } from '../criteria/Array/IsInArray';
+import { IsNotInArray } from '../criteria/Array/IsNotInArray';
 
 /**
  * Validates a single input after a single criteria
@@ -47,6 +49,12 @@ export const applyCriteria = (input, criteria) => {
         } 
         case 'DoesNotConformToRegex': {
             return DoesNotConformToRegex(input, criteria);
+        }
+        case 'IsInArray': {
+            return IsInArray(input, criteria);
+        }
+        case 'IsNotInArray': {
+            return IsNotInArray(input, criteria);
         }
         default: {
             console.error(`Criteria name ${criteria.name} not recognised, check if criteria exists by default or if it\'s been loaded`);
