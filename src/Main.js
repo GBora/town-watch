@@ -4,10 +4,11 @@ import './style/main.scss';
 /**
  * Validates an array of configs which are for multiple inputs
  * @param {array} configs 
-  * @returns {boolean} true if all the input pass all the criteria or 
+ * @param {object} customOptions object containing extra user-defined criteria or other customizeable options
+ * @returns {boolean} true if all the input pass all the criteria or 
  * false if at least one input fails one criteria
  */
-export const validateMultipleInputs = (configs) => {
+export const validateMultipleInputs = (configs, customOptions) => {
     let results = [];
     for (let i = 0;  i < configs.length; i++) {
         let config = configs[i];
@@ -19,10 +20,11 @@ export const validateMultipleInputs = (configs) => {
 /**
  * Validates a single input using the configuration object passed
  * @param {object} config 
+ * @param {object} customOptions object containing extra user-defined criteria or other customizeable options
  * @returns {boolean} true if the input passes all the criteria or 
  * false if it fails at least one
  */
-export const validateSingleInput = (config) => {
+export const validateSingleInput = (config, customOptions) => {
     let input = document.querySelector(config.inputId);
     let results = [];
     // Assume the input is valid
@@ -58,14 +60,15 @@ export const validateSingleInput = (config) => {
  * Setups all the validations in the given config array to be run if
  *  the proper event happens in the browser
  * @param {array} configs 
+ * @param {object} customOptions object containing extra user-defined criteria or other customizeable options
  */
-export const setupValidators = (configs) => {
+export const setupValidators = (configs, customOptions) => {
     for (let i = 0;  i < configs.length; i++) {
         let config = configs[i];
         if (config.eventType) {
             let input = document.querySelector(config.inputId);
             input.addEventListener(config.eventType, () => {
-                validateSingleInput(config);
+                validateSingleInput(config, customOptions);
             })
         }
     }
