@@ -1,0 +1,20 @@
+.custom-valid-input {
+	background: black;
+	color: green;
+	border: 3px solid green;
+}
+
+.custom-invalid-input {
+	background: black;
+	color: orange;
+	border: 3px solid orange;
+}
+
+.custom-error-message {
+    display: none;
+}
+
+.custom-error-message.custom-visible-error-message {
+    display: block;
+    color: orange;
+}

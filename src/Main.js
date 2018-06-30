@@ -1,4 +1,5 @@
 import { applyCriteria } from './validator/Validator';
+import { Config } from './config/Config';
 import './style/main.scss';
 
 /**
@@ -25,17 +26,24 @@ export const validateMultipleInputs = (configs, customOptions) => {
  * false if it fails at least one
  */
 export const validateSingleInput = (config, customOptions) => {
+    let cssClasses;
+    if (customOptions && customOptions.cssClasses) {
+        cssClasses = customOptions.cssClasses;
+    } else {
+        cssClasses = Config.cssClasses;
+    }
+    
     let input = document.querySelector(config.inputId);
     let results = [];
     // Assume the input is valid
-    input.classList.remove('tw-invalid-input');
-    input.classList.add('tw-valid-input');
+    input.classList.remove(cssClasses.invalidInputClass);
+    input.classList.add(cssClasses.validInputClass);
     for (let i = 0;  i < config.criterias.length; i++) {
         let criteria = config.criterias[i];
         // By default assume that the input is valid thus the message doesn't need to be visible
         if (criteria.errorMessageId) {
             let errorMessage = document.querySelector(criteria.errorMessageId);
-            errorMessage.classList.remove('visible-error-message');
+            errorMessage.classList.remove(cssClasses.visibleErrorMessage);
         }
     }
     // Go through the list of criterias
@@ -44,11 +52,11 @@ export const validateSingleInput = (config, customOptions) => {
         let criteriaValidity = applyCriteria(input, criteria);
         results.push(criteriaValidity);
         if (criteriaValidity === false) {
-            input.classList.add('tw-invalid-input');
-            input.classList.remove('tw-valid-input');
+            input.classList.add(cssClasses.invalidInputClass);
+            input.classList.remove(cssClasses.validInputClass);
             if (criteria.errorMessageId) {
                 let errorMessage = document.querySelector(criteria.errorMessageId);
-                errorMessage.classList.add('visible-error-message');
+                errorMessage.classList.add(cssClasses.visibleErrorMessage);
             }
             break;
         }
