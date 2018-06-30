@@ -12,7 +12,7 @@ export const validateMultipleInputs = (configs, customOptions) => {
     let results = [];
     for (let i = 0;  i < configs.length; i++) {
         let config = configs[i];
-        results.push(validateSingleInput(config));
+        results.push(validateSingleInput(config, customOptions));
     }
     return results.indexOf(false) === -1;
 }
@@ -71,5 +71,55 @@ export const setupValidators = (configs, customOptions) => {
                 validateSingleInput(config, customOptions);
             })
         }
+    }
+}
+
+/**
+* Class that serves to hold a user's custom options so that they not need to re-send them for every call
+**/
+export class CustomValidationService {
+    /**
+    * Constructor which receives the custom options to be stored
+    * @param {object} customOptions object containing extra user-defined criteria or other customizeable options
+    **/
+    constructor(customOptions) {
+        this.customOptions = customOptions;
+    }
+
+    /**
+     * Setups all the validations in the given config array to be run if
+     * the proper event happens in the browser, uses the custom options 
+     * from the class instance
+     * @param {array} configs 
+     */
+    setupValidators(configs) {
+        setupValidators(configs, this.customOptions);
+    }
+
+    /**
+     * Validates a single input using the configuration object passed,
+     * uses the custom options from the class instance
+     * @param {object} config 
+     * @returns {boolean} true if the input passes all the criteria or 
+     * false if it fails at least one
+     */
+    validateSingleInput(config) {
+        return validateSingleInput(config, this.customOptions);
+    }
+
+    /**
+     * Validates an array of configs which are for multiple inputs,
+     * uses the custom options from the class instance
+     * @param {array} configs 
+     * @returns {boolean} true if all the input pass all the criteria or 
+     * false if at least one input fails one criteria
+     */
+    validateMultipleInputs(configs) {
+        let results = [];
+        for (let i = 0;  i < configs.length; i++) {
+            let config = configs[i];
+            results.push(this.validateSingleInput(config));
+        }
+        return results.indexOf(false) === -1;
     }
 }
