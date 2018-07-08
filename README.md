@@ -28,7 +28,7 @@ You want to avoid depencies.
 
 ## WIP
 
-Yes, this is still a work in progress. Mostly to do nicer documentation and unit testing.
+Yes, this is still a work in progress. Mostly for unit testing.
 
 ## License 
 
