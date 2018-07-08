@@ -1,6 +1,6 @@
 {
   "name": "town-watch",
-  "version": "0.0.1",
+  "version": "0.9.1",
   "description": "Jvascript validation library for forms in the browser.",
   "main": "dist/townWatch.js",
   "directories": {
@@ -9,7 +9,7 @@
   "scripts": {
     "test": "webpack --entry ./test/isInteger.test.js --output ./tmp/testBundle.js --target node && mocha ./tmp/testBundle.js",
     "build": "webpack",
-    "build-documentation": "documentation build src/** -f html -o docs"
+    "build-documentation": "documentation build src/** -f html -o docs/inner"
   },
   "keywords": [
     "validation"

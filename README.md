@@ -28,9 +28,9 @@ You want to avoid depencies.
 
 ## WIP
 
-Yes, this is still a work in progress.
+Yes, this is still a work in progress. Mostly to do nicer documentation and unit testing.
 
 ## License 
 
-MIT, please see the LICENSE.txt.
+MIT
 
