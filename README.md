@@ -5,7 +5,7 @@ specific error message in the DOM, as well as mark the corespunding input as inv
 
 ## Dependencies 
 
-None
+None.
 
 ## Browser compatibility
 

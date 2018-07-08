@@ -1,0 +1,24 @@
+.tw-nav > ul {
+    width: 100%;
+    display: flex;
+    border: 1px solid #666;
+}
+
+.tw-nav li {
+    cursor: pointer;
+    display: block;
+    flex: 1;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 10px;
+}
+
+.tw-nav a {
+    text-decoration: none;
+    color: #444;
+    font-weight: 500;
+}
+
+.tw-nav li:hover {
+    border-bottom: 5px solid #666;
+}
