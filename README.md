@@ -3,7 +3,7 @@
 A simple library for in-browser, client-side validations where-in each validation failed will trigger one
 specific error message in the DOM, as well as mark the corespunding input as invalid.
 
-## Dependencies 
+## Dependences 
 
 None.
 
@@ -23,7 +23,7 @@ You want to easily chain validations so that they can be added removed with mini
 
 You want to easily add your custom validations to the ones allready provided.
 
-You want to avoid depencies.
+You want to avoid dependences.
 
 
 ## WIP
