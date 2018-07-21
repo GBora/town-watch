@@ -25,11 +25,6 @@ You want to easily add your custom validations to the ones allready provided.
 
 You want to avoid dependences.
 
-
-## WIP
-
-Yes, this is still a work in progress. Mostly for unit testing.
-
 ## License 
 
 MIT
