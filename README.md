@@ -28,4 +28,3 @@ You want to avoid dependences.
 ## License 
 
 MIT
-
